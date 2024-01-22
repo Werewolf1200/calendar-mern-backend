@@ -5,11 +5,12 @@ require('dotenv').config();
 // Servidor
 const app = express();
 
-// Rutas
-
 // Publico
 app.use(express.static('public'));
 
+// Lectura y Parseo del Body
+app.use(express.json());
+// Rutas
 app.use('/api/auth', require('./routes/auth'))
 
 // Escuchar peticiones
