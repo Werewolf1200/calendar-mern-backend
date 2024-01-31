@@ -22,6 +22,11 @@ app.use(express.json());
 app.use('/api/auth', require('./routes/auth'))
 app.use('/api/events', require('./routes/events'))
 
+// Cualquier otra ruta
+app.get('*', (req, res) => {
+    res.sendFile(__dirname + '/public/index.html');
+});
+
 // Escuchar peticiones
 const port = process.env.PORT;
 
